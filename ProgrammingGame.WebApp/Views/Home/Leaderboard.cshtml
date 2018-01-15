@@ -1,0 +1,44 @@
+﻿@model List<ProgrammingGame.WebApp.Models.LeaderboardViewModel>
+
+@{
+    ViewBag.Title = "Leaderboard";
+}
+
+<div class="container">
+    <div class="row">
+        <h1>Leaderboard</h1>
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Nickname</th>
+                    <th scope="col">Successful submissions</th>
+                    <th scope="col">Solved problems</th>
+                </tr>
+            </thead>
+            <tbody>
+                @{
+                    int i = 1;
+                }
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <th scope="row">@i</th>
+                        <td>@item.Nickname</td>
+                        <td>@item.SuccessfulSolutionsCount</td>
+                        <td>
+                            @foreach (var problem in item.SolvedProblems)
+                            {
+                                <div>@problem</div>
+                            }
+                        </td>
+                    </tr>
+
+                    i++;
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
