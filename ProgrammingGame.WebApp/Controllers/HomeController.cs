@@ -106,7 +106,7 @@ namespace ProgrammingGame.WebApp.Controllers
                 leadersList.Add(newLeader);
             }
 
-            leadersList = leadersList.OrderByDescending(x => x.SuccessfulSolutionsCount).ToList();
+            leadersList = leadersList.OrderByDescending(x => x.SuccessfulSolutionsCount).Take(5).ToList();
 
             return View(leadersList);
         }
